@@ -14,8 +14,15 @@
 		<div id="left">
 			<?php include("gongneng.php");?>
 		</div>
-		<div id="right" style="background:#CCCCCC;border:1px solid blue;width:798px;">
-			<iframe src="http://www.thinkpage.cn/weather/weather.aspx?uid=&cid=101010100&l=zh-CHS&p=CMA&a=1&u=C&s=1&m=1&x=1&d=5&fc=&bgc=&bc=&ti=1&in=1&li=2&ct=iframe" frameborder="0" scrolling="no" width="798" height="650" allowTransparency="true"></iframe>
+		<div id="right" style="background:#CCCCCC;border:1px solid blue;width:872px;">
+			<div id="right-top" style="text-align:center;">
+				<iframe scrolling="no" frameborder="0" allowtransparency="true" src="http://www.tianqi.com/index.php?c=code&id=12&icon=1&num=5"></iframe>
+			</div>
+			<div id="right-bottom" style="text-align:center;">
+				<div style="margin-top: 70px">
+					<iframe src="http://flash.weather.com.cn/wmaps/index.swf?url1=http%3A%2F%2Fwww%2Eweather%2Ecom%2Ecn%2Fweather%2F&url2=%2Eshtml&from=cn" width="625" height="457" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no"></iframe>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

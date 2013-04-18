@@ -7,7 +7,7 @@
 		<link href="css/css.css" rel="stylesheet" type="text/css" />
 		<title>基于百度地图的地点搜索</title>
 		<!--引用百度地图API文件-->
-		<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.3"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.5&ak=4dcbad31fba11d08a162dd32470505b5"></script>
 	</head>
 
 	<body>
@@ -29,6 +29,11 @@
 			var map = new BMap.Map("right-bottom");//创建地图实例
 			var point = new BMap.Point(116.404, 39.915);//创建点坐标
 			map.centerAndZoom(point, 5);
+			map.addControl(new BMap.NavigationControl());//添加标准地图控件到地图
+			map.addControl(new BMap.ScaleControl());//添加比例尺控件到地图
+			map.addControl(new BMap.OverviewMapControl());//添加缩略图控件到地图
+			map.addControl(new BMap.MapTypeControl());//地图种类控件
+			map.enableScrollWheelZoom();//启用滚轮放大缩小
 			
 			//本地搜索
 			var local = new BMap.LocalSearch(map, {

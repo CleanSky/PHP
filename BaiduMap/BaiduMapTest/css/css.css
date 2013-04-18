@@ -6,13 +6,13 @@
 body{
 	font: 12px;
 	background: #fff;
-	width: 1000px;
+	width: 1024px;
 	height: 650px;
 	margin: 0px auto;
 }
 
 #left{
-	width: 198px;
+	width: 148px;
 	height: 650px;
 	background: #CCCCCC;
 	float: left;
@@ -21,25 +21,45 @@ body{
 }
 
 #right{
-	width: 800px;
+	width: 874px;
 	height: 650px;
 	float: left;
 }
 
 #right-top{
-	width: 798px;
+	width: 872px;
 	height: 48px;
 	background: #999999;
 	border: 1px solid;
 	border-color: blue;
+	float: left;
 }
 
 #right-bottom{
-	width: 798px;
-	height: 600px;
+	width: 872px;
+	height: 598px;
 	background: #666666;
 	border: 1px solid;
 	border-color: blue;
+	float: left;
+}
+
+#right-bottom1{
+	width: 598px;
+	height: 598px;
+	background: #666666;
+	border: 1px solid;
+	border-color: blue;
+	float: left;
+}
+
+#right-bottom2{
+	width: 270px;
+	height: 598px;
+	background: #666666;
+	border: 1px solid;
+	border-color: blue;
+	float: left;
 }
 
 #gongneng{
@@ -53,5 +73,5 @@ li{
 	list-style: none;
 	font-size: 18px;
 	text-align: center;
-	height: 30px;
+	height: 25px;
 }
