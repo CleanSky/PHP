@@ -16,9 +16,13 @@
 		</div>
 		<div id="right">
 			<div id="right-top">
-				<div style="text-align:center;margin-top:15px;font-weight:bold;">
-					起点：<input id="qidian" type="text" />&nbsp;&nbsp;&nbsp;
+				<div style="text-align:center;margin-top:15px;font-weight:bold;" onkeydown="if(event.keyCode==13){search()}">
+					起点：<input id="qidian" type="text" />
 					终点：<input id="zhongdian" type="text" />
+					<input id="xianzhi1" name="xianzhi" type="radio" value="0" checked="checked" />不乘地铁
+					<input id="xianzhi2" name="xianzhi" type="radio" value="1" />最少时间
+					<input id="xianzhi3" name="xianzhi" type="radio" value="2" />最少换乘
+					<input id="xianzhi4" name="xianzhi" type="radio" value="3" />最少步行
 					<input type="button" value="搜索" onclick="search()" />
 				</div>
 			</div>
@@ -43,15 +47,36 @@
 			function search(){
 				var txt1 = document.getElementById("qidian");
 				var txt2 = document.getElementById("zhongdian");
-				var transit = new BMap.TransitRoute(map, {
-					renderOptions: {map: map,panel:"right-bottom2"},
-					policy:BMAP_TRANSIT_POLICY_AVOID_SUBWAYS//不乘地铁
-					//BMAP_TRANSIT_POLICY_LEAST_TIME//最少时间
-					//BMAP_TRANSIT_POLICY_LEAST_TRANSFER//最少换乘
-					//BMAP_TRANSIT_POLICY_LEAST_WALKING//最少步行
-					//BMAP_TRANSIT_POLICY_AVOID_SUBWAYS//不乘地铁
-				});
-				transit.search(txt1.value, txt2.value);
+				var xianzhi1 = document.getElementById("xianzhi1");
+				var xianzhi2 = document.getElementById("xianzhi2");
+				var xianzhi3 = document.getElementById("xianzhi3");
+				var xianzhi4 = document.getElementById("xianzhi4");
+
+				if(xianzhi1.checked){
+					var transit = new BMap.TransitRoute(map, {
+						renderOptions: {map: map,panel:"right-bottom2"},
+						policy:BMAP_TRANSIT_POLICY_AVOID_SUBWAYS//不乘地铁
+					});
+					transit.search(txt1.value, txt2.value);
+				}else if(xianzhi2.checked){
+					var transit = new BMap.TransitRoute(map, {
+						renderOptions: {map: map,panel:"right-bottom2"},
+						policy:BMAP_TRANSIT_POLICY_LEAST_TIME//最少时间
+					});
+					transit.search(txt1.value, txt2.value);
+				}else if(xianzhi3.checked){
+					var transit = new BMap.TransitRoute(map, {
+						renderOptions: {map: map,panel:"right-bottom2"},
+						policy:BMAP_TRANSIT_POLICY_LEAST_TRANSFER//最少换乘
+					});
+					transit.search(txt1.value, txt2.value);
+				}else if(xianzhi4.checked){
+					var transit = new BMap.TransitRoute(map, {
+						renderOptions: {map: map,panel:"right-bottom2"},
+						policy:BMAP_TRANSIT_POLICY_LEAST_WALKING//最少步行
+					});
+					transit.search(txt1.value, txt2.value);
+				}
 			}
 		</script>
 	</body>

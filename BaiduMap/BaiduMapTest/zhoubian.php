@@ -16,7 +16,7 @@
 		</div>
 		<div id="right">
 			<div id="right-top">
-				<div style="text-align:center;margin-top:15px;font-weight:bold;">
+				<div style="text-align:center;margin-top:15px;font-weight:bold;" onkeydown="if(event.keyCode==13){search()}">
 					请输入您要查询的主题：<input id="zhuti" type="text" />&nbsp;&nbsp;&nbsp;请输入中心地点名称：<input id="didian" type="text" />
 					<input type="button" value="搜索" onclick="search()" />
 				</div>

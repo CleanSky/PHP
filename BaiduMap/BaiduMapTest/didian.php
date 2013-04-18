@@ -16,9 +16,9 @@
 		</div>
 		<div id="right">
 			<div id="right-top">
-				<div style="text-align:center;margin-top:15px;font-weight:bold;">
-					请输入您要查询的地点名称：<input id="didian" type="text" />
-					<input type="button" value="搜索" onclick="search()" />
+				<div style="text-align:center;margin-top:15px;font-weight:bold;" onkeydown="if(event.keyCode==13){search()}">
+						请输入您要查询的地点名称：<input id="didian" type="text" />
+						<input type="button" value="搜索" onclick="search()" />
 				</div>
 			</div>
 			<!--创建一个地图容器-->

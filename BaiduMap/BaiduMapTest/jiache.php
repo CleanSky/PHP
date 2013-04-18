@@ -16,9 +16,12 @@
 		</div>
 		<div id="right">
 			<div id="right-top">
-				<div style="text-align:center;margin-top:15px;font-weight:bold;">
-					起点：<input id="qidian" type="text" />&nbsp;&nbsp;&nbsp;
+				<div style="text-align:center;margin-top:15px;font-weight:bold;" onkeydown="if(event.keyCode==13){search()}">
+					起点：<input id="qidian" type="text" />
 					终点：<input id="zhongdian" type="text" />
+					<input id="xianzhi1" name="xianzhi" type="radio" value="0" checked="checked" />最少时间
+					<input id="xianzhi2" name="xianzhi" type="radio" value="1" />最短距离
+					<input id="xianzhi3" name="xianzhi" type="radio" value="2" />避开高速
 					<input type="button" value="搜索" onclick="search()" />
 				</div>
 			</div>
@@ -43,9 +46,19 @@
 			function search(){
 				var txt1 = document.getElementById("qidian");
 				var txt2 = document.getElementById("zhongdian");
+				var xianzhi1 = document.getElementById("xianzhi1");
+				var xianzhi2 = document.getElementById("xianzhi2");
+				var xianzhi3 = document.getElementById("xianzhi3");
 				//三种驾车策略：最少时间，最短距离，避开高速
 				var routePolicy = [BMAP_DRIVING_POLICY_LEAST_TIME,BMAP_DRIVING_POLICY_LEAST_DISTANCE,BMAP_DRIVING_POLICY_AVOID_HIGHWAYS];
-				driving_search(txt1.value,txt2.value,routePolicy[0]); //最少时间
+
+				if(xianzhi1.checked){
+					driving_search(txt1.value,txt2.value,routePolicy[0]); //最少时间
+				}else if(xianzhi2.checked){
+					driving_search(txt1.value,txt2.value,routePolicy[1]); //最短距离
+				}else if(xianzhi3.checked){
+					driving_search(txt1.value,txt2.value,routePolicy[2]); //避开高速
+				}
 			}
 
 			function driving_search(start,end,route){ 
